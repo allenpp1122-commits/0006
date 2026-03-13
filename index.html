@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入职办理小助手</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; width: 100%; overflow: hidden; }
+        #chat-box { height: 100vh; width: 100vw; }
+    </style>
+</head>
+<body>
+    <div id="chat-box"></div>
+
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+    new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: "7615922655191433279"
+      },
+      componentProps: {
+        title: "入职办理小助手",
+        inline: true,
+        autoFocus: true
+      },
+      auth: {
+        type: "token",
+        token: "你的PAT令牌",
+        onRefreshToken: function () {
+          return "你的PAT令牌";
+        }
+      },
+      element: document.getElementById("chat-box")
+    });
+    </script>
+</body>
+</html>
